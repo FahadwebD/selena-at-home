@@ -25,14 +25,9 @@ app.use("/api/jobs", jobRoutes);
 app.get("/", (req, res) => {
   res.send("Backend Running");
 });
-
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB Connected");
-
-    app.listen(process.env.PORT, () => {
-      console.log(`Server running on ${process.env.PORT}`);
-    });
-  })
+  .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
+
+  
