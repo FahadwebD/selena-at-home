@@ -89,7 +89,12 @@ function EmployeesAdmin() {
       fetchEmployees();
     } catch (error) {
       console.log(error);
-      alert("Something went wrong");
+      
+        alert(
+    error.response?.data?.message ||
+      error.message ||
+      "Something went wrong"
+  );
     }
   };
 
