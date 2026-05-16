@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function EmployeesAdmin() {
-  const API = "http://localhost:5000/api/employees";
+  const API = "https://selena-backend.onrender.com/api/employees";
 
   const [employees, setEmployees] = useState([]);
   const [editingId, setEditingId] = useState(null);
@@ -304,7 +304,7 @@ function EmployeesAdmin() {
             className="bg-white p-5 rounded-xl shadow border"
           >
             <img
-              src={`http://localhost:5000/uploads/${employee.images?.[0]}`}
+              src={`https://selena-backend.onrender.com/uploads/${employee.images?.[0]}`}
               alt={employee.name}
               className="w-32 h-32 object-cover rounded-full mb-4 border-4 border-pink-300"
             />
