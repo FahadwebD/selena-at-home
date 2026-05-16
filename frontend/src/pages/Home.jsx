@@ -14,15 +14,15 @@ function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/services").then((res) => {
+    axios.get("https://selena-backend.onrender.com/api/services").then((res) => {
       setServices(res.data);
     });
 
-    axios.get("http://localhost:5000/api/employees/today").then((res) => {
+    axios.get("https://selena-backend.onrender.com/api/employees/today").then((res) => {
       setEmployees(res.data);
     });
 
-    axios.get("http://localhost:5000/api/prices").then((res) => {
+    axios.get("https://selena-backend.onrender.com/api/prices").then((res) => {
       setPrices(res.data);
     });
   }, []);
@@ -236,7 +236,7 @@ See you soon!
               className="bg-white rounded-2xl shadow hover:shadow-xl transition p-4 sm:p-5"
             >
               <img
-                src={`http://localhost:5000/uploads/${service.image}`}
+                src={`https://selena-backend.onrender.com/api/uploads/${service.image}`}
                 alt={service.name}
                 className="w-full h-52 sm:h-56 object-cover rounded-xl mb-4"
               />
@@ -277,7 +277,7 @@ See you soon!
                   {employee.images?.map((image, index) => (
                     <SwiperSlide key={index}>
                       <img
-                        src={`http://localhost:5000/uploads/${image}`}
+                        src={`https://selena-backend.onrender.com/api/uploads/${image}`}
                         alt={employee.name}
                         className="w-full h-56 sm:h-72 object-cover bg-pink-100"
                       />

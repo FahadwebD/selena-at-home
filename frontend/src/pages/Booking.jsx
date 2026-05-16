@@ -86,7 +86,7 @@ function Booking() {
   const fetchBookings = async (therapistId) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/bookings/therapist/${therapistId}/times`
+        `https://selena-backend.onrender.com/api/bookings/therapist/${therapistId}/times`
       );
 
       setBookings(res.data);
@@ -96,7 +96,7 @@ function Booking() {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/employees/today").then((res) => {
+    axios.get("https://selena-backend.onrender.com/api/employees/today").then((res) => {
       setTherapists(res.data);
     });
   }, []);
@@ -131,7 +131,7 @@ function Booking() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/bookings", {
+      await axios.post("https://selena-backend.onrender.com/api/bookings", {
         ...form,
         duration: Number(form.duration),
         therapistId: selectedTherapist._id,
@@ -244,7 +244,7 @@ function Booking() {
                     }
                   >
                     <img
-                      src={`http://localhost:5000/uploads/${therapist.images?.[0]}`}
+                      src={`https://selena-backend.onrender.com/api/uploads/${therapist.images?.[0]}`}
                       alt={therapist.name}
                       className="w-24 h-24 object-cover rounded-full mb-4 border-4 border-pink-200"
                     />

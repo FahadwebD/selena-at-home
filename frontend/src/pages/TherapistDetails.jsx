@@ -16,7 +16,7 @@ function TherapistDetails() {
   const [therapist, setTherapist] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/employees").then((res) => {
+    axios.get("https://selena-backend.onrender.com/api/employees").then((res) => {
       const foundTherapist = res.data.find((item) => item._id === id);
 
       setTherapist(foundTherapist);
@@ -75,7 +75,7 @@ function TherapistDetails() {
                 <SwiperSlide key={index}>
                   <div className="w-full h-[320px] sm:h-[500px] lg:h-[700px]">
                     <img
-                      src={`http://localhost:5000/uploads/${image}`}
+                      src={`https://selena-backend.onrender.com/api/uploads/${image}`}
                       alt={therapist.name}
                       className="w-full h-full object-cover"
                     />

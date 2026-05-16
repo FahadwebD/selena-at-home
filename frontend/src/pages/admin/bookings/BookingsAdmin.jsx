@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function BookingsAdmin() {
-  const API = "http://localhost:5000/api/bookings";
+  const API = "https://selena-backend.onrender.com/api/bookings";
 
   const [bookings, setBookings] = useState([]);
 

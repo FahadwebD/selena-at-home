@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function PricesAdmin() {
-  const API = "http://localhost:5000/api/prices";
+  const API = "https://selena-backend.onrender.com/api/prices";
 
   const [prices, setPrices] = useState([]);
   const [editingId, setEditingId] = useState(null);

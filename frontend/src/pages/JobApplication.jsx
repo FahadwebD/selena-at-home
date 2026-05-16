@@ -38,7 +38,7 @@ function JobApplication() {
         formData.append("images", form.images[i]);
       }
 
-      await axios.post("http://localhost:5000/api/jobs", formData);
+      await axios.post("https://selena-backend.onrender.com/api/jobs", formData);
 
       alert("Job application submitted successfully");
 

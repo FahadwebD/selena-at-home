@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function ServicesAdmin() {
-  const API = "http://localhost:5000/api/services";
+  const API = "https://selena-backend.onrender.com/api/services";
 
   const [services, setServices] = useState([]);
   const [editingId, setEditingId] = useState(null);
@@ -119,7 +119,7 @@ function ServicesAdmin() {
         {services.map((service) => (
           <div key={service._id} className="bg-white p-5 rounded-xl shadow">
             <img
-              src={`http://localhost:5000/uploads/${service.image}`}
+              src={`https://selena-backend.onrender.com/api/uploads/${service.image}`}
               alt={service.name}
               className="w-full h-40 object-cover rounded-lg mb-4"
             />
