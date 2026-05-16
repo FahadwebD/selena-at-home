@@ -1,18 +1,21 @@
 const express = require("express");
 const multer = require("multer");
 const Employee = require("../models/Employee");
+const fs = require("fs");
 
 const router = express.Router();
+const uploadPath = "uploads/";
+
+if (!fs.existsSync(uploadPath)) {
+  fs.mkdirSync(uploadPath);
+}
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
-
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
+  destination: (req, file, cb) => cb(null, uploadPath),
+  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
 });
+
+
 
 const upload = multer({ storage });
 
