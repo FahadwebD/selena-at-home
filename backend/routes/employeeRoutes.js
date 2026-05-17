@@ -46,10 +46,12 @@ router.post("/", upload.array("images", 10), async (req, res) => {
 
     res.status(201).json(employee);
   } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
+  console.error("EMPLOYEE ROUTE ERROR:", error);
+
+  res.status(500).json({
+    message: error.message,
+  });
+}
 });
 
 // GET ALL THERAPISTS
@@ -60,11 +62,13 @@ router.get("/", async (req, res) => {
     });
 
     res.json(employees);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
+ } catch (error) {
+  console.error("EMPLOYEE ROUTE ERROR:", error);
+
+  res.status(500).json({
+    message: error.message,
+  });
+}
 });
 
 // GET ACTIVE TODAY THERAPISTS
@@ -75,11 +79,13 @@ router.get("/today", async (req, res) => {
     });
 
     res.json(employees);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
+ } catch (error) {
+  console.error("EMPLOYEE ROUTE ERROR:", error);
+
+  res.status(500).json({
+    message: error.message,
+  });
+}
 });
 
 // UPDATE THERAPIST
@@ -115,10 +121,12 @@ router.put("/:id", upload.array("images", 10), async (req, res) => {
 
     res.json(employee);
   } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
+  console.error("EMPLOYEE ROUTE ERROR:", error);
+
+  res.status(500).json({
+    message: error.message,
+  });
+}
 });
 
 // TOGGLE ACTIVE TODAY
@@ -138,10 +146,12 @@ router.put("/:id/toggle-working", async (req, res) => {
 
     res.json(employee);
   } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
+  console.error("EMPLOYEE ROUTE ERROR:", error);
+
+  res.status(500).json({
+    message: error.message,
+  });
+}
 });
 
 // DELETE THERAPIST
@@ -152,11 +162,13 @@ router.delete("/:id", async (req, res) => {
     res.json({
       message: "Therapist deleted",
     });
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
+  }  catch (error) {
+  console.error("EMPLOYEE ROUTE ERROR:", error);
+
+  res.status(500).json({
+    message: error.message,
+  });
+}
 });
 
 module.exports = router;
