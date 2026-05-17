@@ -1,28 +1,26 @@
 const express = require("express");
 const multer = require("multer");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+
 const Employee = require("../models/Employee");
-const fs = require("fs");
+const cloudinary = require("../config/cloudinary");
 
 const router = express.Router();
-const uploadPath = "uploads/";
 
-if (!fs.existsSync(uploadPath)) {
-  fs.mkdirSync(uploadPath);
-}
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadPath),
-  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "therapists",
+    allowed_formats: ["jpg", "jpeg", "png", "webp"],
+  },
 });
-
-
 
 const upload = multer({ storage });
 
 // CREATE THERAPIST
 router.post("/", upload.array("images", 10), async (req, res) => {
   try {
-    const images = req.files ? req.files.map((file) => file.filename) : [];
+    const images = req.files ? req.files.map((file) => file.path) : [];
 
     const employee = new Employee({
       name: req.body.name,
@@ -104,7 +102,7 @@ router.put("/:id", upload.array("images", 10), async (req, res) => {
     };
 
     if (req.files && req.files.length > 0) {
-      updateData.images = req.files.map((file) => file.filename);
+      updateData.images = req.files.map((file) => file.path);
     }
 
     const employee = await Employee.findByIdAndUpdate(

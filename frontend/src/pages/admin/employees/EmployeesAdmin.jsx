@@ -305,10 +305,10 @@ function EmployeesAdmin() {
             className="bg-white p-5 rounded-xl shadow border"
           >
             <img
-              src={`https://selena-backend.onrender.com/uploads/${employee.images?.[0]}`}
-              alt={employee.name}
-              className="w-32 h-32 object-cover rounded-full mb-4 border-4 border-pink-300"
-            />
+  src={employee.images?.[0]}
+  alt={employee.name}
+  className="w-32 h-32 object-cover rounded-full mb-4 border-4 border-pink-300"
+/>
 
             <h3 className="text-xl font-bold">{employee.name}</h3>
 
