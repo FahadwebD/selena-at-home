@@ -87,11 +87,15 @@ function EmployeesAdmin() {
 
       resetForm();
       fetchEmployees();
-    } catch (error) {
-      console.log(error);
-      alert("Something went wrong");
-      
-    }
+    }  catch (error) {
+  console.log(error);
+
+  alert(
+    error.response?.data?.message ||
+      error.message ||
+      "Something went wrong"
+  );
+}
   };
 
   const editEmployee = (employee) => {
