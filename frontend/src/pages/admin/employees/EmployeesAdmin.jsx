@@ -87,7 +87,7 @@ function EmployeesAdmin() {
 
       resetForm();
       fetchEmployees();
-    }  catch (error) {
+    } catch (error) {
   console.log(error);
 
   alert(

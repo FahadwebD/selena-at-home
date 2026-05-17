@@ -277,7 +277,7 @@ See you soon!
                   {employee.images?.map((image, index) => (
                     <SwiperSlide key={index}>
                       <img
-                        src={`https://selena-backend.onrender.com/api/uploads/${image}`}
+                        src={image}
                         alt={employee.name}
                         className="w-full h-56 sm:h-72 object-cover bg-pink-100"
                       />
